@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 // Fibonacci sequence from the book Groovy in Action 2011-03-21
 current = 1 
 next = 1

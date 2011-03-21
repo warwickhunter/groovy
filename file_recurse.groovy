@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 // Groovy sample from Groovy in Action book
 def count = 100
 new File('..').eachFileRecurse { 
