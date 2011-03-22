@@ -14,7 +14,7 @@ new File('ca-bundle.crt').eachLine { line ->
         println outfile.name
         outfile.append("$line\n")
         collecting = true
-    } else if ("END") {
+    } else if (line =~ "END") {
         outfile.append("$line\n")
         collecting = false
     } else if (collecting) {
