@@ -31,3 +31,10 @@ range = 0..9
 for (j in range) {
     assert j == range[j]
 }
+
+// Evaluate
+def code = '1 + '
+def os = System.getProperty('os.version')
+printf "%s %s %n", os, os.substring(0, 3)
+os = os.substring(0, 3)
+println evaluate('1 + ' + os)
