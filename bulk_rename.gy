@@ -1,0 +1,11 @@
+#!/usr/bin/env groovy
+/**
+ * Bulk renaming of files.
+ */
+new File('.').eachFileRecurse { file ->
+    if (file.name =~ 'groovy') {
+        def newName = file.name.replaceAll('groovy','gy')
+        printf "git mv %s %s %n", file.name, newName
+        Runtime.runtime.exec(String.format("echo git mv %s %s %n", file.name, newName))
+    }
+}
