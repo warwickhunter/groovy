@@ -2,10 +2,14 @@
 /**
  * Bulk renaming of files.
  */
+def harmless = false
 new File('.').eachFileRecurse { file ->
-    if (file.name =~ 'groovy') {
-        def newName = file.name.replaceAll('groovy','gy')
-        printf "git mv %s %s %n", file.name, newName
-        Runtime.runtime.exec(String.format("echo git mv %s %s %n", file.name, newName))
+    if (file.name =~ 'atv-dictate' || file.name =~ 'atv_dictate') {
+        def newName = file.name.replaceAll('dictate','vtaas')
+        def cmd = String.format("p4 move %s %s", file.name, newName)
+        println cmd
+        if (!harmless) {
+            Runtime.runtime.exec(cmd)
+        }
     }
 }
