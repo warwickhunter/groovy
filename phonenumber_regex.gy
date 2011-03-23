@@ -1,0 +1,27 @@
+#!/usr/bin/env groovy
+/**
+ * Check that my understanding of regular expression language is correct
+ * 
+ * @author Warwick Hunter
+ * @since  2011-03-23
+ */
+ph1 = "+61412421576"
+ph2 = "61412421576"
+ph3 = "+6141242157699999999999999999999999999999"
+ph4 = "+61412421576999999999999999999999999999999"
+
+assert ph1.length() < 40
+assert ph2.length() < 40
+assert ph3.length() == 41
+assert ph4.length() > 41
+
+pattern = "\\+\\d{1,40}\\z"
+
+println "pattern $pattern"
+for (ph in [  ph1, ph2, ph3, ph4 ]) {
+    if (ph =~ pattern) {
+        println "match $ph"
+    } else {
+        println "nomatch $ph"
+    }
+}
