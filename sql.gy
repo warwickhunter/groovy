@@ -10,19 +10,29 @@ import groovy.sql.Sql
 // Add the jdbc jar to the classpath at runtime
 this.class.classLoader.rootLoader.addURL(new URL("file:/usr/share/java/postgresql-jdbc.jar"))
 
-def displayProject = { project ->
-    println "Project $project.name"
-    if (project.base)        println "    base        : $project.base"
-    if (project.created)     println "    created     : $project.created"
-    if (project.description) println "    description : $project.description"
-    if (project.state)       println "    state       : $project.state"
-    if (project.url)         println "    url         : $project.url"
-    println ''
+try {
+    displayProject = { project ->
+        println "Project $project.name"
+        if (project.base)        println "    base        : $project.base"
+        if (project.created)     println "    created     : $project.created"
+        if (project.description) println "    description : $project.description"
+        if (project.state)       println "    state       : $project.state"
+        if (project.url)         println "    url         : $project.url"
+        println ''
+    }
+    stmt = Sql.newInstance("jdbc:postgresql://localhost/si", "si", null, "org.postgresql.Driver")
+    stmt.eachRow('select * from "PROJECT"', displayProject)
+} catch (Exception e) {
+    println e.message
 }
 
-def sql = Sql.newInstance("jdbc:postgresql://localhost/si", "si", null, "org.postgresql.Driver")
-sql.eachRow('select * from "PROJECT"', displayProject)
-
-sql = Sql.newInstance("jdbc:postgresql://localhost/reviewboard", "reviewboard", null, "org.postgresql.Driver")
-sql.eachRow('select * from auth_user', { println "$it.username $it.first_name $it.last_name $it.email" })
+try {
+    displayUser = { user ->
+        println "$user.username $user.first_name $user.last_name $user.email"
+    }
+    stmt = Sql.newInstance("jdbc:postgresql://localhost/reviewboard", "reviewboard", null, "org.postgresql.Driver")
+    stmt.eachRow('select * from auth_user', )
+} catch (Exception e) {
+    println e.message
+}
 
