@@ -21,7 +21,7 @@ pattern = "\\A\\+\\d{1,40}\\z"
 
 println "phone pattern $pattern"
 for (ph in [  ph1, ph2, ph3, ph4 ]) {
-    if (ph =~ pattern) {
+    if (ph ==~ pattern) {
         println "match $ph"
     } else {
         println "nomatch $ph"
@@ -43,7 +43,7 @@ pattern = "\\A[^@]{1,100}@[^@]{1,100}\\z"
 
 println "email pattern $pattern"
 for (ph in [ email1, email2, email3, email4, email5, email6 ]) {
-    if (ph =~ pattern) {
+    if (ph ==~ pattern) {
         println "match $ph"
     } else {
         println "nomatch $ph"

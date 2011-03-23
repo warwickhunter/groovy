@@ -28,11 +28,12 @@ try {
 
 try {
     displayUser = { user ->
-        println "$user.username $user.first_name $user.last_name $user.email"
+        println "$user.username"
+        println "    $user.first_name $user.last_name"
+        println "    $user.email"
     }
     stmt = Sql.newInstance("jdbc:postgresql://localhost/reviewboard", "reviewboard", null, "org.postgresql.Driver")
-    stmt.eachRow('select * from auth_user', )
+    stmt.eachRow('select * from auth_user', displayUser)
 } catch (Exception e) {
     println e.message
 }
-
