@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 /**
- * Messing about with xml builders in Groovy
+ * Markup builder example from "Groovy in Action"
  *
  * @author Warwick Hunter
  * @since  2011-04-10
