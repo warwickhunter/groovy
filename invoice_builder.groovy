@@ -34,3 +34,33 @@ println writer
 
 println invoices.depthFirst()*.name()
 println invoices.breadthFirst()*.name()
+
+// Invoices with MarkupBuilder and NodeBuilder comparison
+println '\nInvoices with MarkupBuilder\n-------------------------------------'
+writer = new StringWriter()
+builder = new groovy.xml.MarkupBuilder(writer)
+invoices = builder.invoices {
+    for (day in 1..3) {
+        invoice(date: new Date(106,0,day)) {
+            item(count:day) {
+                product(name:'ULC', dollar:1499)
+            }
+        }
+    }
+}
+println writer
+
+println '\nInvoices with NodeBuilder\n-------------------------------------'
+builder = new NodeBuilder()
+invoices = builder.invoices {
+    for (day in 1..3) {
+        invoice(date: new Date(106,0,day)) {
+            item(count:day) {
+                product(name:'ULC', dollar:1499)
+            }
+        }
+    }
+}
+writer = new StringWriter()
+invoices.print(new PrintWriter(writer))
+println writer
