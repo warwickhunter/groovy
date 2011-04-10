@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 /**
- * Node builder example from "Groovy in Action"
+ * Builder examples from "Groovy in Action"
  *
  * @author Warwick Hunter
  * @since  2011-04-10
