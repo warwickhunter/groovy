@@ -22,7 +22,7 @@ frame = swing.frame(title:'Layout Demo') {
             }
             vstrut()
             panel {
-                borderLayout()
+                borderLayout() // A different way to attach a border layout
                 button(constraints: BL.NORTH,  'N')
                 button(constraints: BL.CENTER, 'C')
                 button(constraints: BL.SOUTH,  'S')
