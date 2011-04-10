@@ -12,7 +12,7 @@ new File("$groovyHome/lib").eachFileMatch(~/ant.*\.jar/, {
     this.class.classLoader.rootLoader.addURL(new URL("file:$it"))
 })
 
-BUILD_DIR = "build"
+BUILD_DIR = "../build"
 SRC_DIR = "."
 
 def ant = new AntBuilder()
