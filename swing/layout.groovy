@@ -22,12 +22,8 @@ frame = swing.frame(title:'Layout Demo') {
             }
             vstrut()
             panel {
-                borderLayout() // A different way to attach a border layout
-                button(constraints: BL.NORTH,  'N')
-                button(constraints: BL.CENTER, 'C')
-                button(constraints: BL.SOUTH,  'S')
-                button(constraints: BL.EAST,   'E')
-                button(constraints: BL.WEST,   'W')
+                textField(id:'mytext', columns:10) // Show the use of addressing by id
+                button(text:'DoIt', actionPerformed: {println swing.mytext.text})
             }
             vstrut()
             panel {
