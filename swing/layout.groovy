@@ -10,6 +10,11 @@ import java.awt.BorderLayout as BL
 import javax.swing.*
 
 swing = new SwingBuilder()
+
+printAction = swing.action(name:'Print', closure: {
+    println swing.mytext.text
+})
+
 frame = swing.frame(title:'Layout Demo') {
     panel {
         vbox {
@@ -23,7 +28,7 @@ frame = swing.frame(title:'Layout Demo') {
             vstrut()
             panel {
                 textField(id:'mytext', columns:10) // Show the use of addressing by id
-                button(text:'DoIt', actionPerformed: {println swing.mytext.text})
+                button(action: printAction)
             }
             vstrut()
             panel {
@@ -33,7 +38,7 @@ frame = swing.frame(title:'Layout Demo') {
                         td { button 'Two' }
                     }
                     tr {
-                        td(colspan:2, colfill:true) { button 'Three' }
+                        td(colspan:2, colfill:true) { button(action:printAction) }
                     }
                 }
             }
