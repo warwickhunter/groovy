@@ -37,3 +37,4 @@ html.html {
         }
     }
 }
+Runtime.runtime.exec('google-chrome markup.html')
