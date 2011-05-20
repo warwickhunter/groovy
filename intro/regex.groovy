@@ -15,3 +15,11 @@ while (matcher.find()) {
         }
     }
 }
+
+// Experiment with regexs to validate an acoustic model name
+newChecker = /[\p{Alnum}-_\.]{1,128}/
+assert ("A_b.c.d-e1" ==~ newChecker)
+
+oldChecker = /[\p{Alnum}-_]{1,128}/
+assert !"A_b.c.d-e1" ==~ oldChecker
+
