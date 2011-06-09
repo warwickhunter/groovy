@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 /**
  * Experimenting with java.util.Scanner, which is a really useful beast.
  *

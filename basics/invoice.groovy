@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 /**
  * Invoice example from "Groovy in Action"
  * 

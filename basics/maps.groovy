@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 /**
  * Just some messing around with maps
  */

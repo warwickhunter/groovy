@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 /**
  * Spread example from "Groovy in Action"
  * 

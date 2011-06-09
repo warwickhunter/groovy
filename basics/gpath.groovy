@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 /**
  * Messing about with GPath
  * 
