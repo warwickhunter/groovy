@@ -15,10 +15,10 @@ new File("$groovyHome/lib").eachFileMatch(~/ant.*\.jar/, {
 BUILD_DIR = "../build"
 SRC_DIR = "."
 
-def ant = new AntBuilder()
-ant.delete(dir:BUILD_DIR)
-ant.mkdir(dir:BUILD_DIR)
-ant.sequential {
+def builder = new AntBuilder()
+builder.delete(dir:BUILD_DIR)
+builder.mkdir(dir:BUILD_DIR)
+builder.sequential {
     taskdef name:"groovyc", classname:"org.codehaus.groovy.ant.Groovyc"
     groovyc srcdir:SRC_DIR, destdir:BUILD_DIR, {
         javac source:"1.6", target:"1.6", debug:"on"

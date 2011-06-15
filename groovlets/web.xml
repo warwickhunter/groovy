@@ -1,0 +1,13 @@
+<web-app>
+
+  <servlet>
+       <servlet-name>Groovy</servlet-name>
+       <servlet-class>groovy.servlet.GroovyServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>Groovy</servlet-name>
+      <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
