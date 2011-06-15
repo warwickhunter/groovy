@@ -12,9 +12,15 @@ new File("$groovyHome/lib").eachFileMatch(~/ant.*\.jar/, {
     this.class.classLoader.rootLoader.addURL(new URL("file:$it"))
 })
 
-BUILD_DIR  = "build"
-SRC_DIR    = "."
-LIB_DIR    = "lib"
+cwd = System.properties['user.dir']
+if (cwd.endsWith("groovy")) {
+    BASE_DIR  = "groovlets"
+} else {
+    BASE_DIR  = "."
+}
+BUILD_DIR  = "$BASE_DIR/build"
+SRC_DIR    = "$BASE_DIR/."
+LIB_DIR    = "$BASE_DIR/lib"
 DEPLOY_DIR = new File(System.getenv("CATALINA_HOME") + "/webapps")
 if (!DEPLOY_DIR.canWrite()) {
     ant.echo "CATALINA_HOME/webapps is not accessible"
