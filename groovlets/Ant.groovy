@@ -23,7 +23,7 @@ SRC_DIR    = "$BASE_DIR/."
 LIB_DIR    = "$BASE_DIR/lib"
 DEPLOY_DIR = new File(System.getenv("CATALINA_HOME") + "/webapps")
 if (!DEPLOY_DIR.canWrite()) {
-    ant.echo "CATALINA_HOME/webapps is not accessible"
+    println "CATALINA_HOME/webapps is not accessible"
     return
 }
 
