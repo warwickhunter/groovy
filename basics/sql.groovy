@@ -5,10 +5,15 @@
  * @author Warwick Hunter
  * @since  2011-03-22
  */
+
+// JDBC drivers can be loaded this way with Grape
+@GrabConfig(systemClassLoader=true)
+@Grab(group='postgresql', module='postgresql', version='8.4-701.jdbc3')
 import groovy.sql.Sql
 
-// Add the jdbc jar to the classpath at runtime
-this.class.classLoader.rootLoader.addURL(new URL("file:/usr/share/java/postgresql-jdbc.jar"))
+// Or the JDBC drivers can be loaded this way
+//this.class.classLoader.rootLoader.addURL(new URL("file:/usr/share/java/postgresql-jdbc.jar"))
+
 
 try {
     displayProject = { project ->
