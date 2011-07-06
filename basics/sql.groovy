@@ -8,7 +8,7 @@
 
 // JDBC drivers can be loaded this way with Grape
 @GrabConfig(systemClassLoader=true)
-@Grab(group='postgresql', module='postgresql', version='8.4-701.jdbc3')
+@Grab(group='postgresql', module='postgresql', version='[8,)')
 import groovy.sql.Sql
 
 // Or the JDBC drivers can be loaded this way
