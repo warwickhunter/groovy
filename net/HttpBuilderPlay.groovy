@@ -1,4 +1,10 @@
 #!/usr/bin/env groovy
+/**
+ * Mess around with HTTPBuilder to see what I can do with it.
+ * 
+ * @author Warwick Hunter
+ * @since 2011-07-06
+ */
 package net
 
 // Use Grape to handle the downloading of required jars, nice!
@@ -8,34 +14,34 @@ import groovyx.net.http.*
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
 
-/**
- * Mess around with HTTPBuilder to see what I can do with it.
- * 
- * @author Warwick Hunter
- * @since 2011-07-06
- */
+def http = new HTTPBuilder('http://www.boxofficemojo.com')
 
-def http = new groovyx.net.http.HTTPBuilder('http://ajax.googleapis.com')
-
-// perform a GET request, expecting JSON response data
-http.request( GET, JSON ) {
-  uri.path = '/ajax/services/search/web'
-  uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
-
+http.request( GET, TEXT ) { req ->
+  uri.path = '/franchises'
   headers.'User-Agent' = 'Mozilla/5.0 Ubuntu/8.10 Firefox/3.0.4'
 
   // response handler for a success response code:
-  response.success = { resp, json ->
-    println resp.statusLine
-
-    // parse the JSON response object:
-    json.responseData.results.each {
-      println "  ${it.titleNoFormatting} : ${it.visibleUrl}"
+  response.success = { resp, reader ->
+    reader.each { line ->
+        if (line =~ "/movies/" && line =~ 'align="center"') {
+            pos1 = line.indexOf("href=")
+            if (pos1 >= 0) {
+                pos2 = line.indexOf('">', pos1)
+                if (pos2 >= 0) {
+                    pos3 = line.indexOf('</a>', pos2)
+                    printf "%s,", line.substring(pos1 + 6, pos2)
+                    if (pos3 >= 0) {
+                        printf "%s%n", line.substring(pos2 + 2, pos3)
+                    }
+                }
+            }
+        }            
     }
   }
 
-  // handler for any failure status code:
   response.failure = { resp ->
     println "Unexpected error: ${resp.statusLine.statusCode} : ${resp.statusLine.reasonPhrase}"
   }
 }
+
+return 0
