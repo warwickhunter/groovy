@@ -7,19 +7,9 @@
  */
 package sql;
 
-/**
- * Groovy SQL experiments
- * 
- * @author Warwick Hunter
- * @since  2011-03-22
- */
-
 // JDBC drivers can be loaded this way with Grape - Alas Eclipse doesn't co-operate with Grape/grab
 //@GrabConfig(systemClassLoader=true)
 //@Grab(group='postgresql', module='postgresql', version='[8,)')
-// JDBC drivers can be loaded this way with Grape. But Eclipse complains.
-//@GrabConfig(systemClassLoader=true)
-//Grab(group='postgresql', module='postgresql', version='[8,)')
 import groovy.sql.Sql
 
 import java.sql.Date
