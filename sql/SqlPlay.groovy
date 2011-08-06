@@ -42,7 +42,7 @@ try {
         println "$athlete.firstname $athlete.lastname, $athlete.dateofbirth, $athlete.created"
     }
     db.eachRow('select * from athlete', displayAthlete)
-        
+
 } catch (Exception e) {
     println e.message
 }

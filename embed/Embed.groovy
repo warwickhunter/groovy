@@ -6,7 +6,9 @@
  */
 package embed
 
+//
 // Use GroovyShell.evaluate to do instant script execution
+//
 binding = new Binding()
 binding.x = 42
 binding.y = 20
@@ -20,13 +22,28 @@ binding.setVariable("x", 1)
 assert shell.evaluate(area) == 20
 println shell.evaluate(area)
 
+//
 // Use GroovyShell.parse to generate a reusable script
+//
 script = shell.parse(area)
 script.binding.x = 10
 script.binding.y = 12
 assert script.run() == 120
 println script.run()
 
-
-
-
+//
+// Try it with a class
+//
+klass = '''
+class AreaCalculator implements Runnable {
+    public static void main(String[] args) {
+        println "AreaCalculator.main"
+        args.each { println it }
+    }
+    public void run() {
+        println "AreaCalculator.run"
+    }
+}
+'''
+script = shell.parse(klass)
+shell.run(script, ["a", "b"])
