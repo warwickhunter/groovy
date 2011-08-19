@@ -2,8 +2,13 @@
 <customers>
   <corporate>
     <customer name="Bill Gates"     company="Microsoft"/>
-    <customer name="Steve Jobs"     company="Apple"/>
-    <customer name="Warwick Hunter" company="Promptu"/>
+    <customer name="Steve Jobs"     company="Apple">
+        <purchase date="2011-07-01" item="item7" price="410.00"/>
+    </customer>
+    <customer name="Warwick Hunter" company="Promptu">
+        <purchase date="2011-08-01" item="item1" price="10.00"/>
+        <purchase date="2011-08-03" item="item1" price="10.00"/>
+    </customer>
   </corporate>
   <consumer>
     <customer name="John Doe"/>
