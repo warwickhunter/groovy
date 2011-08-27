@@ -18,6 +18,6 @@ if (!options) {
 if (options.h) {
     cli.usage()
 }
-println "Do something to file $options.f"
-
+def verbs = options.arguments().join(' ')
+println "Do something to file $options.f with $verbs"
 
