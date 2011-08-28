@@ -1,6 +1,6 @@
 html.html {
     head {
-        title 'Groovlet Demonsrator'
+        title 'Groovlet Demonstrator'
     }
     body {
         h1 'Welcome to the world of Groovlets'
