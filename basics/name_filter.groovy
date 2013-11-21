@@ -21,7 +21,7 @@ names.eachLine { line ->
         return
     }
     String[] parts = name.split(vowels)
-    if (parts.length > 1) {
+    if (parts.length > 0) {
         StringBuilder nonVowels = new StringBuilder()
         for (String p : parts) {
             nonVowels.append(p)
