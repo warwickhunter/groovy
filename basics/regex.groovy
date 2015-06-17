@@ -1,25 +1,17 @@
 #!/usr/bin/env groovy
-// Experimenting with a regex pattern for detecting bug references in commit comments
+// Experimenting with a regex pattern to extract an SMS recipient and message body
 
 import java.util.regex.*;
 
-pattern = Pattern.compile("[Bb]ugs?:?\\s*(?:(\\d+)\\D)?(?:(\\d+)\\D)?(?:(\\d+)\\D)?(?:(\\d+)\\D)?");
+pattern = Pattern.compile("((?:[\\w]+[\\W]*){2})(([\\w]+[\\W]*)+)");
 
-matcher = pattern.matcher("Bugs 1111 2222, 3333,4444 la de dah");
+matcher = pattern.matcher("tell assembled and have a beer");
 while (matcher.find()) {
     printf "matchCount=%d%n", matcher.groupCount()
     for (int i = 1; i < matcher.groupCount(); ++i) {
-        bugNumber = matcher.group(i);
-        if (bugNumber != null) {
-            printf "match=\"%s\"%n", bugNumber
+        text = matcher.group(i);
+        if (text != null) {
+            printf "match[%d]=\"%s\"%n", i, text
         }
     }
 }
-
-// Experiment with regexs to validate an acoustic model name
-newChecker = /[\p{Alnum}-_\.]{1,128}/
-assert ("A_b.c.d-e1" ==~ newChecker)
-
-oldChecker = /[\p{Alnum}-_]{1,128}/
-assert !"A_b.c.d-e1" ==~ oldChecker
-
