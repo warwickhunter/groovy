@@ -18,12 +18,39 @@ interface GitHubService {
   List<Object> listRepos(@Path("user") String user);
 }
 
-RestAdapter restAdapter = new RestAdapter.Builder()
+RestAdapter restAdapter1 = new RestAdapter.Builder()
     .setEndpoint("https://api.github.com")
     .build();
 
-GitHubService service = restAdapter.create(GitHubService.class);
+class Todo {
+    int userId
+    int id
+    String title
+    boolean completed
+}
 
-println service.listRepos("octocat");
+interface TodoService {
+   @GET("/todos")
+   List<Todo> getTodo()
+}
+
+RestAdapter restAdapter2 = new RestAdapter.Builder()
+    .setEndpoint("http://jsonplaceholder.typicode.com")
+    .build();
+
+GitHubService service1 = restAdapter1.create(GitHubService.class)
+
+TodoService service2 = restAdapter2.create(TodoService.class)
+
+println "Github repos for warwickhunter"
+service1.listRepos("warwickhunter").each { repo ->
+    println "$repo.name $repo.clone_url"
+}
+
+println ""
+println "Jsonplaceholder TODOs"
+service2.getTodo().each { todo ->
+    println "id: $todo.id userId: $todo.userId complete: $todo.completed $todo.title"
+}
 
 return 0
