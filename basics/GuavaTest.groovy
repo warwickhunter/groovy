@@ -21,5 +21,8 @@ Thread.sleep(1021)
 sw.stop()
 sw.elapsed(TimeUnit.SECONDS)
 println "Elapsed=" + sw
+printf "Elapsed=%d ms%n", sw.elapsed(TimeUnit.MILLISECONDS)
+sw.elapsed(TimeUnit.MILLISECONDS)
+println "Elapsed=" + sw
 
 return 0
