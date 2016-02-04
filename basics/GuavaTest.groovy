@@ -9,13 +9,13 @@ package basics
 
 // Use Grape to handle the downloading of required jars, nice!
 @Grapes(
-    @Grab(group='com.google.guava', module='guava', version='14.0.1')
+    @Grab(group='com.google.guava', module='guava', version='19.0')
 )
 
 import com.google.common.base.*
 import java.util.concurrent.*
 
-Stopwatch sw = new Stopwatch()
+Stopwatch sw = Stopwatch.createUnstarted()
 sw.start()
 Thread.sleep(1021)
 sw.stop()

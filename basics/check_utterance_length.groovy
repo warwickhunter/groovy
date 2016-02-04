@@ -7,7 +7,7 @@
  */
 import javax.sound.sampled.*
 
-def MAX_LENGTH_SECONDS = 15.0
+def MAX_LENGTH_SECONDS = 10.0
 
 new File(args[0]).eachFileRecurse { file ->
     if (!file.directory && file.name =~ "wav") {
