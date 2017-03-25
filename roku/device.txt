@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<device-info>
+	<udn>05a03148-7800-10a7-80c8-d04d2cec2b3f</udn>
+	<serial-number>5X358N042952</serial-number>
+	<device-id>5X358N042952</device-id>
+	<advertising-id>1aa41c99-cb87-5bf7-8bf5-fe17b0b161bf</advertising-id>
+	<vendor-name>Telstra</vendor-name>
+	<model-name>Telstra TV</model-name>
+	<model-number>4200TL</model-number>
+	<model-region>US</model-region>
+	<supports-ethernet>true</supports-ethernet>
+	<wifi-mac>d0:4d:2c:ec:2b:3f</wifi-mac>
+	<ethernet-mac>d0:4d:2c:ec:2b:3e</ethernet-mac>
+	<network-type>wifi</network-type>
+	<user-device-name/>
+	<software-version>7.5.3</software-version>
+	<software-build>4008</software-build>
+	<secure-device>true</secure-device>
+	<language>en</language>
+	<country>TELSTRA</country>
+	<locale>en_US</locale>
+	<time-zone>Australia/QLD</time-zone>
+	<time-zone-offset>600</time-zone-offset>
+	<power-mode>PowerOn</power-mode>
+	<supports-suspend>false</supports-suspend>
+	<supports-find-remote>false</supports-find-remote>
+	<supports-audio-guide>false</supports-audio-guide>
+	<developer-enabled>false</developer-enabled>
+	<keyed-developer-id/>
+	<search-enabled>true</search-enabled>
+	<voice-search-enabled>false</voice-search-enabled>
+	<notifications-enabled>false</notifications-enabled>
+	<notifications-first-use>true</notifications-first-use>
+	<supports-private-listening>true</supports-private-listening>
+	<headphones-connected>false</headphones-connected>
+	<supports-ecs-textedit>true</supports-ecs-textedit>
+</device-info>
+Server: Roku UPnP/1.0 MiniUPnPd/1.4
+Content-Length: 1501
+Cache-Control: no-cache
+Content-Type: text/xml; charset="utf-8"
